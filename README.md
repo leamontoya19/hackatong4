@@ -2,7 +2,8 @@
 
 Easy España es una aplicación web diseñada para ayudar a inmigrantes en su proceso de adaptación a la vida en España. Utilizando tecnologías modernas y un asistente virtual impulsado por IA, nuestro objetivo es hacer que la transición sea lo más sencilla posible.
 
-(https://prod-files-secure.s3.us-west-2.amazonaws.com/d1e7f6b6-bd77-4016-920a-ef3943dfbb32/bc9e346b-a04b-4ca6-bc41-5e909263411f/image.png)
+![image](https://github.com/user-attachments/assets/b0eae5d1-9742-4d23-b69a-d7a057d09197)
+
 
 ## Características principales
 
@@ -11,7 +12,8 @@ Easy España es una aplicación web diseñada para ayudar a inmigrantes en su pr
 - Información detallada sobre trámites legales, vivienda, empleo y cultura española
 - Recursos para aprender español
 
-(https://prod-files-secure.s3.us-west-2.amazonaws.com/d1e7f6b6-bd77-4016-920a-ef3943dfbb32/f15416a6-83ea-424e-bf24-59601469958b/image.png)
+![image](https://github.com/user-attachments/assets/0282322a-ddbf-4d95-b12e-99d09bc7361a)
+
 
 ## Tecnologías utilizadas
 
