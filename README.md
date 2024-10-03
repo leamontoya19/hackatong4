@@ -53,3 +53,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarnos en [info@easyespana.com]
+
+## Link a la presentación de Canva
+[Easy Spain en Canva](https://www.canva.com/design/DAGSf3rTm8M/ldbdl59Vo-AfnoVBs0Gszw/edit?utm_content=DAGSf3rTm8M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
