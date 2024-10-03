@@ -1,0 +1,96 @@
+{% extends 'api/base_generic.html' %}
+
+{% block content %}
+<div class="video-cover vid-container">
+    <video autoplay loop muted>
+        <source src="http://127.0.0.1:8000/static/media/ciudad_video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay">
+        <h1 class="text-light fw-bold" style="font-family:Montserrat">Bienvenido a la Plataforma Ciudadana</h1>
+    </div>
+</div>
+
+<div class="container mt-1">
+    <h2>Buscar Colegios Públicos en Madrid</h2>
+    <select id="barrio" class="form-select mb-2">
+        <option value="">Cargando barrios...</option>
+    </select>
+    <button id="buscarColegios" class="btn btn-primary mb-2">Buscar Colegios</button>
+    <div id="resultadosColegios"></div>
+
+    <script>
+        $(document).ready(function() {
+            function cargarBarrios(intentos = 3) {
+                $.ajax({
+                    url: '/api/colegios-data/',  // Asegúrate de que esta ruta coincida con tu configuración de Django
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log('Datos recibidos:', data);
+                        let barrios = new Set();
+                        data['@graph'].forEach(function(colegio) {
+                            if (colegio.address && colegio.address.district) {
+                                barrios.add(colegio.address.district);
+                            }
+                        });
+                        
+                        let barriosArray = Array.from(barrios).sort();
+                        let options = '<option value="">Seleccione un barrio</option>';
+                        barriosArray.forEach(function(barrio) {
+                            options += `<option value="${barrio}">${barrio}</option>`;
+                        });
+                        $('#barrio').html(options);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error al obtener datos:', textStatus, errorThrown);
+                        if (intentos > 0) {
+                            setTimeout(() => cargarBarrios(intentos - 1), 2000);
+                        } else {
+                            $('#barrio').html('<option value="">Error al cargar barrios</option>');
+                            alert('No se pudieron cargar los barrios. Por favor, intente más tarde.');
+                        }
+                    }
+                });
+            }
+
+            cargarBarrios();
+
+            $('#buscarColegios').click(function() {
+                let barrio = $('#barrio').val();
+                if (barrio) {
+                    $.ajax({
+                        url: '/api/colegios-data/',  // Usa la misma ruta que para cargar barrios
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            let colegios = data['@graph'].filter(colegio => 
+                                colegio.address && 
+                                colegio.address.district && 
+                                colegio.address.district.toLowerCase() === barrio.toLowerCase()
+                            );
+                            
+                            let html = '<ul class="list-group">';
+                            colegios.forEach(function(colegio) {
+                                html += `<li class="list-group-item">
+                                    <h5>${colegio.title}</h5>
+                                    <p>Dirección: ${colegio.address['street-address']}</p>
+                                    <p>Teléfono: ${colegio.organization && colegio.organization.telephone || 'No disponible'}</p>
+                                </li>`;
+                            });
+                            html += '</ul>';
+                            
+                            $('#resultadosColegios').html(html);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Error al obtener datos:', textStatus, errorThrown);
+                            $('#resultadosColegios').html('<p class="text-danger">Error al obtener los datos de colegios.</p>');
+                        }
+                    });
+                } else {
+                    $('#resultadosColegios').html('<p class="text-warning">Por favor, seleccione un barrio.</p>');
+                }
+            });
+        });
+    </script>
+</div>
+{% endblock %}
