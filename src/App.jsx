@@ -1,38 +1,23 @@
-<<<<<<< HEAD
-import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+import Carousel from "./components/Carousel";
+
 
 
 function App() {
   
   return (
     <>
-      
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+      <Route path="/" element={<Carousel/>}/>
+    </Routes>
+    <Footer/>
+    </BrowserRouter>
     </>
   )
 }
-=======
-import React, { useState } from 'react';
-import NavBar from './components/NavBar';
-import DataDisplay from './components/DataDisplay';
-import { fetchData } from './services/apiService';
-
-const App = () => {
-  const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
-
-  const handleOptionSelect = async (category) => {
-    setSelectedCategory(category);
-    const fetchedData = await fetchData(category);
-    setData(fetchedData);
-  };
-
-  return (
-    <div>
-      <NavBar onSelectOption={handleOptionSelect} />
-      <DataDisplay data={data} />
-    </div>
-  );
-};
->>>>>>> 40898dcb9842f5f0cae2df0ab5aa42463e2a5657
 
 export default App;

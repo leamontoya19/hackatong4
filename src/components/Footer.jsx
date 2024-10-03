@@ -1,144 +1,66 @@
-const Footer = () => {
-    return (
-        <footer className="bg-black text-white py-2 z-30 relative">
-            {/* Segunda sección con las columnas */}
-            <div className="w-full h-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-3 lg:pt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 mb-6 items-start">
-                {/* Follow Us Section */}
-                <div className="flex flex-col items-center sm:items-center lg:items-center relative md: mr-[4.5%] sm: ml-[23%]">
-                    {' '}
-                    {/* Cambié items-end a items-center para centrar */}
-                    {/* Logo principal */}
-                    <div className="container flex flex-col items-center">
-                        <img
-                            className="w-28 sm:w-20 md:w-56  md: mr-[20%] lg:w-64 rounded-full border-black mb-4 lg: mr-12 lg:mb-6 sm: mr-[18%]"
-                            src="/src/assets/icons/LogoBlanco2.png"
-                            alt="Icon"
-                        />{' '}
-                        {/* Ajusté el mb */}
-                        {/* Texto "Follow Us" */}
-                        <div className="flex flex-col items-center text-center mr-24">
-                            <p className="text-[#eee8e1] text-lg lg:text-xl font-bold uppercase tracking-widest mt-2">
-                                Follow Us
-                            </p>
+import React from 'react';
+import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import  logoBlue from '../assets/icons/logo-blue.png'
 
-                            {/* Logos de redes sociales */}
-                            <div className="flex gap-4 mt-2 justify-center">
-                                {' '}
-                                {/* Eliminé los justify-end para centrar */}
-                                {/* Instagram */}
-                                <a
-                                    href="https://www.instagram.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="/src/assets/icons/logoIgGato.png"
-                                        className="w-8 sm:w-6 md:w-12 lg:w-16"
-                                        alt="Instagram Logo"
-                                    />
-                                </a>
-                                {/* Facebook */}
-                                <a
-                                    href="https://www.facebook.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="/src/assets/icons/logoFacebookGato.png"
-                                        className="w-8 sm:w-6 md:w-12 lg:w-16"
-                                        alt="Facebook Logo"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                {/* Quick Links Section */}
-                <div className="flex flex-col items-center sm:items-center md:items-start">
-                    <p className="text-[#eee8e1] text-lg font-bold uppercase tracking-widest sm:text-center md:text-left">
-                        Quick Links
-                    </p>
-                    <ul className="mt-2 space-y-2 text-center sm:text-center md:text-left">
-                        <li>
-                            <a
-                                href="aboutus"
-                                className="text-[#eee8e1] text-base opacity-50"
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#reports"
-                                className="text-[#eee8e1] text-base opacity-50"
-                            >
-                                Reports
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#services"
-                                className="text-[#eee8e1] text-base opacity-50"
-                            >
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#contact"
-                                className="text-[#eee8e1] text-base opacity-50"
-                            >
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Subscribe Section */}
-                <div className="flex flex-col items-center sm:items-center md:items-start">
-                    <p className="text-[#eee8e1] text-lg font-bold uppercase tracking-widest sm:text-center md:text-left">
-                        Subscribete
-                    </p>
-                    <p className="text-[#eee8e1] text-base mt-2 leading-relaxed text-center sm:text-center md:text-left">
-                        Recibe las tendencias y los conocimientos de nuestro
-                        equipo directamente en su bandeja de entrada todos los
-                        meses.
-                    </p>
-                    <div className="relative mt-4 w-full sm:w-full md:w-auto">
-                        <input
-                            className="px-16 py-2 text-base text-[#8b8a8a] bg-transparent border-2 border-[#eee8e1]/70 rounded-full w-full pr-12"
-                            placeholder="Your email"
-                        />
-                        <button className="absolute right-1 top-1/2 transform -translate-y-1/2">
-                            <img
-                                src="/src/assets/icons/botonCat.png"
-                                alt="Submit"
-                                className="w-10 lg:w-12 h-10 rounded-full border-2 border-white"
-                            />
-                        </button>
-                    </div>
-                </div>
+function Footer() {
+  return (
+    <div className=''>
+      <footer className="bg-[#0B67BE] text-white">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="md:flex flex-wrap justify-between">
+            <div className="mb-2 md:mb-0  md:w-1/4">
+                <img src={logoBlue} alt="" srcset="" />
             </div>
-
-            {/* Footer Bottom Section */}
-            <div className="border-t border-white/30 py-2 w-full mx-0 px-0">
-                <div className="flex flex-col font-jaro sm:flex-col lg:flex-row lg:justify-between lg:items-center w-full">
-                    <p className="text-[#eee8e1]/70  text-sm text-center lg:text-left ml-8">
-                        ©️ 2024 MeCat Museum- The Meme’s Cat Museum
-                    </p>
-                    <div className="flex space-x-6 mt-4 lg:mt-0 mr-8">
-                        <a href="#" className="text-[#eee8e1]/70 text-sm">
-                            Privacy
-                        </a>
-                        <a href="#" className="text-[#eee8e1]/70 text-sm">
-                            Terms & Conditions
-                        </a>
-                    </div>
-                </div>
+            <div className="w-full md:w-1/4">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase">HORARIOS</h2>
+              <ul className="text-white font-medium">
+                <li className="mb-4">
+                  <p className="flex"><FaCalendarAlt className="mr-2 mt-1" />De Miércoles a Sábado <br/> 12:30 - 17:00 y 20:00 - 23:30</p>
+                </li>
+                <li className="mb-4">
+                  <p className="flex"><FaCalendarAlt className="mr-2 mt-1" />Domingo <br/> 12:30 - 17:00</p>
+                </li>
+                <li className="mb-4">
+                  <p className="flex"><FaCalendarAlt className="mr-2 mt-1" />Lunes y Martes<br/>Cerrado</p>
+                </li>
+              </ul>
             </div>
-        </footer>
-    )
+            <div className="w-full md:w-1/4">
+              <h2 className="mb-6 text-sm font-semibold text-white">CONTACTA CON NOSOTROS</h2>
+              <ul className="text-white font-medium">
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">Teléfono: 652196890-636965465</a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full md:w-1/4">
+              <ul className="text-white font-medium">
+                <li className="mb-4">
+                  <Link to="/legal-warning">Aviso Legal</Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/privacy-policy">Política de privacidad</Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/cookies-policy">Política de cookies</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="md:text-center mt-4">
+  <div className="flex flex-col">
+    <span className=' mr-4'>Design by Sala 3 Web 2024</span>
+    <span> &copy; La alegría de vivir 99º</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;
