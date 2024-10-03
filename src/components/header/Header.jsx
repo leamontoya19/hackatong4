@@ -31,7 +31,7 @@ const Header = () => {
           <img src={logo} alt="Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto" />
         </div>
 
-        <nav className="flex items-center justify-between w-full h-auto xl:h-[10vh]">
+        <nav className="flex items-center justify-evenly w-full h-auto xl:h-[10vh]">
           <ul className="flex space-x-6 font-inter">
             <li><Link to="/aboutus" className="hover:text-[#f05a40] hover:underline text-white p-3">Sobre Nosotros</Link></li>
             <li><Link to="/foundraising" className="hover:text-[#f05a40] hover:underline text-white p-3">Cómo ayudar</Link></li>

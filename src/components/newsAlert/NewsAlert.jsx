@@ -3,7 +3,7 @@ import React from 'react';
 const NewsAlert = () => {
   return (
     <section className="bg-[#f05a40] text-white py-0.5 w-full h-auto top-20 xl:top-[10vh] fixed">
-      <div className="bg-white text-black rounded-md flex flex-col md:flex-row items-center p-0.5 shadow-md">
+      <div className="bg-[#f3f1ef] text-black rounded-md flex flex-col md:flex-row items-center p-0.5 shadow-md">
         {/* Icon section */}
         <div className="flex items-center justify-center bg-[#f05a40] p-1.5 rounded-full text-white md:mr-4">
           <svg

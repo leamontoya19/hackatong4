@@ -1,0 +1,18 @@
+/* HeroSlider.css */
+.hello-hero {
+    position: relative;
+  }
+  
+  .hello-hero__carousel {
+    height: 100vh; /* Ajusta la altura como desees */
+  }
+  
+  .hello-hero__background-image {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hello-gradient {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+  
