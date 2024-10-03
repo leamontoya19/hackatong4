@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-
-
-function App() {
-  
-  return (
-    <>
-      
-    </>
-  )
-}
-=======
 import React, { useState } from 'react';
 import NavBar from './components/NavBar';
 import DataDisplay from './components/DataDisplay';
@@ -33,6 +20,5 @@ const App = () => {
     </div>
   );
 };
->>>>>>> 40898dcb9842f5f0cae2df0ab5aa42463e2a5657
 
 export default App;

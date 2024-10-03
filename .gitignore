@@ -22,7 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+node_modules
 
-# .gitignore
-node_modules/
-.env
