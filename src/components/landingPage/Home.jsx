@@ -9,18 +9,15 @@ const Home = () => {
       <Header />
       <NewsAlert />
       
-      {/* Sección de imagen directamente después de NewsAlert */}
-      
-
       {/* Contenedor para el texto "Sobre Nosotros" */}
-      <div className="container mx-auto flex flex-col items-center justify-center min-h-screen">
+      <div className="container mx-auto flex flex-col items-center justify-center min-h-[108vh]">
         <div className=" lg:grid-cols-2 gap-1 items-center mb-5">
 
         <div data-aos="zoom-in" className="mt-20 flex justify-center">
         <img
           src={MainImg}
           alt="Imagen personas en aeropuerto"
-          className="w-full max-w-screen-lg h-[480px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover rounded-lg"
+          className="w-full  h-[480px] drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover rounded-lg"
         />
       </div>
           
@@ -42,8 +39,8 @@ const Home = () => {
                 className="mt-1 mx-12 text-gray-700 text-lg text-justify mb-6"
                 style={{ textIndent: '2rem' }}
               >
-                EASY SPAIN es una aplicación diseñada para facilitar la integración 
-                de personas que acaban de llegar a un nuevo país. 
+                EASY SPAIN es una aplicación con información y educación disponible para refugiados, solicitantes de asilo e inmigrantes en general.
+
                 Sabemos que el proceso de adaptación puede ser desafiante: desde navegar los trámites legales
                 hasta encontrar servicios esenciales y familiarizarse con una nueva cultura e idioma. 
                 Nuestra misión es acompañarte en cada paso del camino, 
