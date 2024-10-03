@@ -57,3 +57,10 @@ Si tienes alguna pregunta o sugerencia, no dudes en contactarnos en [info@easyes
 ## Link a la presentación de Canva
 [Easy Spain en Canva](https://www.canva.com/design/DAGSf3rTm8M/ldbdl59Vo-AfnoVBs0Gszw/edit?utm_content=DAGSf3rTm8M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
+## Link a Figma
+[Presentación Figma](https://www.figma.com/design/Sjj5jqQjmaYyjsCvOilAQ0/Hackaton4?node-id=0-1&t=tv38ZXe7ztgZDlNo-1)
+
+## Link a Trello
+[Tablero Trello](https://trello.com/b/ogMhsizz/hackatong4)
+
+
