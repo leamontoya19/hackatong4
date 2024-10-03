@@ -62,6 +62,7 @@ function Navbar() {
               <li><a className="hover:text-[#BBBC4E]" href="/#Carta">Cómo ayudar</a></li>
               <li><Link className="hover:text-[#BBBC4E]" to="/reservation">Contacto</Link></li>
 
+
           </ul>
         </nav>
       </section>
