@@ -1,23 +1,20 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
-import Navbar from "./components/NavBar";
-import Carousel from "./components/Carousel";
-
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/header/Header';
+//import Home from './pages/Home';  // Supongamos que tienes una página Home
+//import About from './pages/About';  // Supongamos que tienes una página About
 
 function App() {
-  
   return (
-    <>
-    <BrowserRouter>
-    <Navbar/>
-    <Routes>
-      <Route path="/" element={<Carousel/>}/>
-    </Routes>
-    <Footer/>
-    </BrowserRouter>
-    </>
-  )
+    <Router>
+      <Header />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* Otras rutas */}
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
