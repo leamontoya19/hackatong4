@@ -1,8 +1,8 @@
-# React + Vite
+# CHATBOX EASY SPAIN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este chat box es un prototipo a entrenar pero es una idea general de lo que será y una maquetación.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Situarse en la carpeta correspondiente de IA
+- Tener descargado las dependencias con ''' pip install requirements.txt '''
+- Arrancar el programa con ''' python chatbox.py '''
+- Abrir el archivo index_ai.html
