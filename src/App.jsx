@@ -1,35 +1,38 @@
+<<<<<<< HEAD
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
+=======
+import React, { useState } from 'react';
+import NavBar from './components/NavBar';
+import DataDisplay from './components/DataDisplay';
+import { fetchData } from './services/apiService';
 
-export default App
+const App = () => {
+  const [data, setData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const handleOptionSelect = async (category) => {
+    setSelectedCategory(category);
+    const fetchedData = await fetchData(category);
+    setData(fetchedData);
+  };
+
+  return (
+    <div>
+      <NavBar onSelectOption={handleOptionSelect} />
+      <DataDisplay data={data} />
+    </div>
+  );
+};
+>>>>>>> 40898dcb9842f5f0cae2df0ab5aa42463e2a5657
+
+export default App;
