@@ -2,18 +2,18 @@ import React from 'react';
 
 const NewsAlert = () => {
   return (
-    <section className="bg-[#f05a40] text-white py-1">
-      <div className="bg-white text-black rounded-md flex flex-col md:flex-row items-center p-4 shadow-md">
+    <section className="bg-[#f05a40] text-white py-0.5 w-full h-auto top-20 xl:top-[10vh] fixed">
+      <div className="bg-white text-black rounded-md flex flex-col md:flex-row items-center p-0.5 shadow-md">
         {/* Icon section */}
-        <div className="flex items-center justify-center bg-[#f05a40] p-4 rounded-full text-white md:mr-6">
+        <div className="flex items-center justify-center bg-[#f05a40] p-1.5 rounded-full text-white md:mr-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-labelledby="alarm-bell-icon"
             role="img"
             x="0px"
             y="0px"
-            width="24"
-            height="24"
+            width="15"
+            height="15"
             viewBox="0 0 224 224"
             className="fill-current"
           >
@@ -29,11 +29,11 @@ const NewsAlert = () => {
         {/* Message section */}
         <div className="flex-1">
           <p className="font-bold">
-            <a
-              href="#"
-              className="hover:underline text-[#0b67be]"
+            <a 
+            href="#" 
+            className="hover:underline text-[#0b67be]"
             >
-              Nuevas actualizaciones del estatus de protección temporal (TPS) para Palestina y Líbano.
+              Nuevas actualizaciones del estatus de protección temporal (EPT) para Palestina y Líbano.
             </a>
           </p>
         </div>

@@ -24,7 +24,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`bg-[#0b67be] text-white p-4 w-full h-auto xl:h-[15vh] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+    <header className={`bg-[#0b67be] text-white p-4 w-full h-auto xl:h-[10vh] fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="flex justify-between items-center px-8">
         {/* Logo */}
         <div className="flex items-center space-x-3">
