@@ -3,16 +3,18 @@ const axios = require('axios');
 const app = express();
 const cors = require('cors');
 
-// Permitir CORS
 app.use(cors());
 
 // Ruta para reenviar solicitudes
 app.get('/api/:category', async (req, res) => {
   const { category } = req.params;
   const apiUrls = {
-    social: 'https://datos.madrid.es/egob/catalogo/212774-0-atencion-social.json',
-    educacion: 'https://datos.madrid.es/egob/catalogo/212790-0-centros-educacion.json',
-    medica: 'https://datos.madrid.es/egob/catalogo/212769-0-atencion-medica.json',
+    social:
+      'https://datos.madrid.es/egob/catalogo/212774-0-atencion-social.json',
+    educacion:
+      'https://datos.madrid.es/egob/catalogo/212790-0-centros-educacion.json',
+    medica:
+      'https://datos.madrid.es/egob/catalogo/212769-0-atencion-medica.json',
   };
 
   // Verifica si la categoría es válida
@@ -37,7 +39,10 @@ app.get('/api/:category', async (req, res) => {
       res.status(500).send('No hubo respuesta de la API externa.');
     } else {
       // Error en la configuración de la solicitud
-      console.error('Error en la configuración de la solicitud:', error.message);
+      console.error(
+        'Error en la configuración de la solicitud:',
+        error.message
+      );
       res.status(500).send('Error en la configuración de la solicitud.');
     }
   }
