@@ -4,6 +4,7 @@ import NewsAlert from '../newsAlert/NewsAlert';
 import MainImg from '../../assets/airport.png';
 import Footer from '../footer/Footer';
 import Carousel from '../carousel/Carousel';
+import ContactForm from '../form/form';
 
 const Home = () => {
   return (
@@ -85,6 +86,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ContactForm/>
       <Footer/>
     </div>
   );
