@@ -2,25 +2,28 @@ import React from 'react';
 import Header from '../header/Header';
 import NewsAlert from '../newsAlert/NewsAlert';
 import MainImg from '../../assets/airport.png';
-//import Footer from './Footer';
+import Footer from '../footer/Footer';
+import Carousel from '../carousel/Carousel';
 
 const Home = () => {
   return (
     <div>
       <Header />
       <NewsAlert />
+      <Carousel/>
+
 
       {/* Contenedor para el texto "Sobre Nosotros" */}
       <div className="container mx-auto flex flex-col items-center justify-center min-h-[108vh]">
         <div className="lg:grid-cols-2 gap-1 items-center mb-5">
 
-          <div data-aos="zoom-in" className="mt-20 flex justify-center">
+          {/* <div data-aos="zoom-in" className="mt-20 flex justify-center">
             <img
               src={MainImg}
               alt="Imagen personas en aeropuerto"
               className="w-full h-[480px] drop-shadow-lg object-cover rounded-lg"
             />
-          </div>
+          </div> */}
 
           <div className="flex flex-col justify-center gap-6 text-center">
             <h1 data-aos="fade-up" className="text-3xl sm:text-3xl font-bold mt-9">
@@ -82,7 +85,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };
