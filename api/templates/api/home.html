@@ -1,96 +1,160 @@
 {% extends 'api/base_generic.html' %}
 
 {% block content %}
-<div class="video-cover vid-container">
-    <video autoplay loop muted>
-        <source src="http://127.0.0.1:8000/static/media/ciudad_video.mp4" type="video/mp4" />
-    </video>
-    <div class="video-overlay">
-        <h1 class="text-light fw-bold" style="font-family:Montserrat">Bienvenido a la Plataforma Ciudadana</h1>
+{% comment %} <div class="container mt-1">
+    <div class="row">
+        <div class="col-md-6" id="ciudades">
+            <div class="section-background">
+                <h2 class="text-secondary">Selecciona tu Ciudad</h2>
+                <ul class="list-group">
+                    {% for ciudad in ciudades %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ ciudad.name }}
+                        <!-- Se eliminó el enlace a 'city_detail' -->
+                        <span class="btn btn-secondary btn-sm disabled">No disponible</span>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item">No hay ciudades disponibles</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6" id="categorias">
+            <div class="section-background">
+                <h2 class="text-secondary">Categorías Disponibles</h2>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    {% for categoria in categorias %}
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body d-flex align-items-center">
+                                <div>
+                                    <h5 class="card-title">{{ categoria.name }}</h5>
+                                    <p class="card-text">Descripción: {{ categoria.description }}</p>
+                                </div>
+                                <a href="{% url 'category_detail' categoria.id %}" class="btn btn-info btn-sm ms-auto">Ver Más</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No hay categorías disponibles</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6" id="subcategorias">
+            <div class="section-background">
+                <h2 class="text-secondary">Subcategorías</h2>
+                <ul class="list-group">
+                    {% for subcategoria in subcategorias %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ subcategoria.name }}
+                        <a href="{% url 'subcategoria_detail' subcategoria.id %}" class="btn btn-primary btn-sm">Ver</a>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item">No hay subcategorías disponibles</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<div class="alert">
+    Nuevas actualizaciones del estatus de protección temporal (TPS) para Palestina y Líbano.
 </div>
 
+<main>
+    <section class="hero" style="background-image: url('../../../static/media/hero.jpg'); height:100vh;">
+        <div class="hero-content">
+            <h1>EASY SPAIN</h1>
+            <p>Facilitando la integración de personas que acaban de llegar a un nuevo país.</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="community-icon.png" alt="Comunidad">
+            <p>Acceso a servicios comunitarios, legales y médicos.</p>
+        </div>
+        <div class="feature">
+            <img src="info-icon.png" alt="Información">
+            <p>Información actualizada sobre trámites y documentos que necesitas.</p>
+        </div>
+        <div class="feature">
+            <img src="support-icon.png" alt="Soporte">
+            <p>Soporte multilingüe para asegurarnos de que siempre puedes entender la información que necesitas.</p>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="category">
+            <img src="education.jpg" alt="Educación">
+            <h3>Educación</h3>
+        </div>
+        <div class="category">
+            <img src="immigration.jpg" alt="Inmigración">
+            <h3>Inmigración</h3>
+        </div>
+        <div class="category">
+            <img src="health.jpg" alt="Salud">
+            <h3>Salud</h3>
+        </div>
+        <div class="category">
+            <img src="work.jpg" alt="Trabajo">
+            <h3>Trabajo</h3>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre">
+            <input type="email" placeholder="e-mail">
+            <input type="tel" placeholder="Teléfono">
+            <textarea placeholder="Deja tu mensaje aquí..."></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; Copyright 2024 | All Rights Reserved | Easy Spain</p>
+</footer>
+
 <div class="container mt-1">
-    <h2>Buscar Colegios Públicos en Madrid</h2>
-    <select id="barrio" class="form-select mb-2">
-        <option value="">Cargando barrios...</option>
-    </select>
-    <button id="buscarColegios" class="btn btn-primary mb-2">Buscar Colegios</button>
-    <div id="resultadosColegios"></div>
-
-    <script>
-        $(document).ready(function() {
-            function cargarBarrios(intentos = 3) {
-                $.ajax({
-                    url: '/api/colegios-data/',  // Asegúrate de que esta ruta coincida con tu configuración de Django
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        console.log('Datos recibidos:', data);
-                        let barrios = new Set();
-                        data['@graph'].forEach(function(colegio) {
-                            if (colegio.address && colegio.address.district) {
-                                barrios.add(colegio.address.district);
-                            }
-                        });
-                        
-                        let barriosArray = Array.from(barrios).sort();
-                        let options = '<option value="">Seleccione un barrio</option>';
-                        barriosArray.forEach(function(barrio) {
-                            options += `<option value="${barrio}">${barrio}</option>`;
-                        });
-                        $('#barrio').html(options);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error('Error al obtener datos:', textStatus, errorThrown);
-                        if (intentos > 0) {
-                            setTimeout(() => cargarBarrios(intentos - 1), 2000);
-                        } else {
-                            $('#barrio').html('<option value="">Error al cargar barrios</option>');
-                            alert('No se pudieron cargar los barrios. Por favor, intente más tarde.');
-                        }
-                    }
-                });
-            }
-
-            cargarBarrios();
-
-            $('#buscarColegios').click(function() {
-                let barrio = $('#barrio').val();
-                if (barrio) {
-                    $.ajax({
-                        url: '/api/colegios-data/',  // Usa la misma ruta que para cargar barrios
-                        method: 'GET',
-                        dataType: 'json',
-                        success: function(data) {
-                            let colegios = data['@graph'].filter(colegio => 
-                                colegio.address && 
-                                colegio.address.district && 
-                                colegio.address.district.toLowerCase() === barrio.toLowerCase()
-                            );
-                            
-                            let html = '<ul class="list-group">';
-                            colegios.forEach(function(colegio) {
-                                html += `<li class="list-group-item">
-                                    <h5>${colegio.title}</h5>
-                                    <p>Dirección: ${colegio.address['street-address']}</p>
-                                    <p>Teléfono: ${colegio.organization && colegio.organization.telephone || 'No disponible'}</p>
-                                </li>`;
-                            });
-                            html += '</ul>';
-                            
-                            $('#resultadosColegios').html(html);
-                        },
-                        error: function(jqXHR, textStatus, errorThrown) {
-                            console.error('Error al obtener datos:', textStatus, errorThrown);
-                            $('#resultadosColegios').html('<p class="text-danger">Error al obtener los datos de colegios.</p>');
-                        }
-                    });
-                } else {
-                    $('#resultadosColegios').html('<p class="text-warning">Por favor, seleccione un barrio.</p>');
-                }
-            });
-        });
-    </script>
+    <form method="get" action="{% url 'filtered_view' %}">
+        <div class="form-group">
+            <label for="ciudad">Selecciona Ciudad:</label>
+            <select name="ciudad" id="ciudad" class="form-control">
+                <option value="">Todas</option>
+                {% for ciudad in ciudades %}
+                <option value="{{ ciudad.id }}">{{ ciudad.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Selecciona Categoría:</label>
+            <select name="categoria" id="categoria" class="form-control">
+                <option value="">Todas</option>
+                {% for categoria in categorias %}
+                <option value="{{ categoria.id }}">{{ categoria.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subcategoria">Selecciona Subcategoría:</label>
+            <select name="subcategoria" id="subcategoria" class="form-control">
+                <option value="">Todas</option>
+                {% for subcategoria in subcategorias %}
+                <option value="{{ subcategoria.id }}">{{ subcategoria.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
+    </form>    
 </div>
 {% endblock %}
