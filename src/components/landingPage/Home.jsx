@@ -1,7 +1,6 @@
-import React from 'react';  
-import Header from '../header/Header';
+ import Header from '../header/Header';
 import NewsAlert from '../newsAlert/NewsAlert';
-import MainImg from '../../assets/airport.png';
+//import MainImg from '../../assets/airport.png';
 import Footer from '../footer/Footer';
 import Carousel from '../carousel/Carousel';
 import ContactForm from '../form/form';
@@ -87,8 +86,7 @@ const Home = () => {
         </div>
       </div>
       <ContactForm/>
-      <Footer/>
-    </div>
+      <Footer/>    </div>
   );
 };
 
